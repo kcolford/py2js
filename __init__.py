@@ -1,0 +1,1 @@
+from py2js_app import app
