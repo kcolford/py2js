@@ -2,13 +2,15 @@
 """
 
 import binary
+import boolop
 import expression
 import statement
 
-class Collection(statement.Statement,
-                 binary.Binary,
-                 expression.Expression):
-    """The final front end of the translation routines.
+class Collection(binary.Binary,
+                 boolop.BoolOp
+                 expression.Expression,
+                 statement.Statement):
+    """The final front end class of the translation routines.
     """
 
     pass
