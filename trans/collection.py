@@ -10,6 +10,7 @@ import statement
 class Collection(binary.Binary,
                  boolop.BoolOp,
                  classes.Classes,
+                 classes.Modules,
                  expression.Expression,
                  statement.Statement):
     """The final front end class of the translation routines.

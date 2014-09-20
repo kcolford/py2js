@@ -25,13 +25,13 @@ class Modules(translator.Translator):
     """
 
     def visit_Module(self, node):
-        sym = symtable.symtable(node, "", "exec")
         ret = ""
         ret += "function _Py2JS_module_def() {"
         ret += ' '.join(self.visit(i) for i in node.body)
-        for i in sym.get_identifiers():
+        for i in get_ids(node):
             ret += "this." + i + " = " + i + ";"
-        ret += "}"
+        ret += "} "
+        ret += "module = new _Py2JS_module_def();"
         return ret
 
 def get_ids(node):
