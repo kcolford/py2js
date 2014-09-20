@@ -34,3 +34,9 @@ class Expression(translator.Translator):
         return ("function (" + self.visit(node.args) + ") {" +
                 self.visit(node.body))
 
+    def visit_IfExpr(self, node):
+        return ("(" + self.visit(node.test) + " ? " +
+                self.visit(node.body) + " : " + self.visit(node.orelse) + 
+                ")")
+
+
