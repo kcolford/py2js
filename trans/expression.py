@@ -2,9 +2,12 @@ import translator
 import ast
 
 class Expression(translator.Translator):
-    
+
+    def visit_Name(self, node):
+        return node.id
+
     def visit_Call(self, node):
-        return (self.visit(node.func) + ".__call__(" + 
+        return (self.visit(node.func) + ".__call__(" +
                 self.visit(node.args) + ")")
 
     def visit_Dict(self, node):
@@ -15,12 +18,12 @@ class Expression(translator.Translator):
         # outside, not the inside as we have been doing up until now.
         ret = "!Boolean" if isinstance(node.op, ast.Not) else ""
 
-        return (ret + "(" + self.visit(node.operand) + "." + 
+        return (ret + "(" + self.visit(node.operand) + "." +
                 self.visit(node.op) + "())")
 
     def visit_Invert(self, node):
         return "__invert__"
-    
+
     def visit_Num(self, node):
         t = ""
         if isinstance(node.n, int):
