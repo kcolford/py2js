@@ -25,9 +25,3 @@ class Translator(ast.NodeVisitor):
         """
 
         return ' '.join(self.visit(i) for i in ast.iter_child_nodes(node))
-        
-    def visit(self, node):
-        if isinstance(node, list):
-            assert False
-        return ast.NodeVisitor.visit(self, node)
-

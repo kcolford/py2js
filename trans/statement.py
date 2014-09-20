@@ -20,3 +20,7 @@ class Statement(translator.Translator):
         return ("if (" + self.visit(node.test) + ") {" +
                 ' '.join(self.visit(i) for i in node.body) + "} else {" +
                 ' '.join(self.visit(i) for i in node.orelse) + "}")
+
+    def visit_FunctionDef(self, node):
+        return ("function " + node.name + "(" + self.visit(node.args) + 
+                ") {" + ' '.join(map(self.visit, node.body)) + "};")

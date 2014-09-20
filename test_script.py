@@ -3,4 +3,5 @@
 print 1 + 1
 
 class Foo:
-    pass
+    def bar(self):
+        pass
