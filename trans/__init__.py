@@ -4,6 +4,7 @@
 python_builtins = """
 True = true;
 False = false;
+None = null;
 """
 
 import collection
