@@ -4,8 +4,11 @@
 import binary
 import translator
 import expression
+import statement
 
-class Collection(translator.Translator, binary.Binary, expression.Expression):
+class Collection(statement.Statement,
+                 binary.Binary,
+                 expression.Expression):
     """The final front end of the translation routines.
     """
 
