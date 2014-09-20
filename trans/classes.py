@@ -2,7 +2,7 @@ import translator
 import symtable
 
 
-class Classes(translator.Translate):
+class Classes(translator.Translator):
     """This translates class definitions into java script.
     """
 
@@ -19,7 +19,7 @@ class Classes(translator.Translate):
         ret += "], new _Py2JS_" + node.name + "()"
         ret += ")"
 
-class Modules(translator.Translate):
+class Modules(translator.Translator):
     """This translates module definitions into java script.
     """
 
@@ -29,6 +29,5 @@ class Modules(translator.Translate):
         ret += "function _Py2JS_module_def() {"
         ret += ' '.join(self.visit(i) for i in node.body)
         for i in sym.get_identifiers():
-            ret += "this." + i + " = " + i ";"
+            ret += "this." + i + " = " + i + ";"
         ret += "}"
-        ret += 
