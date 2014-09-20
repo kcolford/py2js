@@ -16,16 +16,9 @@ class Translate(webapp2.RequestHandler):
 
 class TestTranslate(webapp2.RequestHandler):
   def get(self):
-    self.response.write("""
 
-<html>
-<title> py2js </title>
-<body>
-Hi there
-</body
-</html>
-
-""")
+    f = open('py2js/test_translate.html')
+    self.response.write(f.read())
 
 app = webapp2.WSGIApplication([('/py2js/translate/', Translate),
                                ('/py2js/test_translate/', TestTranslate)
