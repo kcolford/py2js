@@ -12,7 +12,7 @@ class Translator(ast.NodeVisitor):
         """Walk over the code and create java script
         """
 
-        if isinstance(code, str):
+        if isinstance(code, str) or isinstance(code, unicode):
             code = ast.parse(code)
 
         return self.visit(code)

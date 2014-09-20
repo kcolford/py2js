@@ -22,4 +22,7 @@ class Expression(translator.Translator):
         return "__invert__"
     
     def visit_Num(self, node):
-        return "int(" + str(node.n) + ")"
+        t = ""
+        if isinstance(node.n, int):
+            t = "int"
+        return t + "(" + str(node.n) + ")"
