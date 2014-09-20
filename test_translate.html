@@ -1,6 +1,21 @@
 <html>
-<title> py2js </title>
+<head>
+  <title> py2js </title>
+
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+</head>
+
 <body>
+
+<script>
+  $.post('../translate/', {
+    'python_string': 'print 1 + 1'
+  }, function(res) {
+    console.log(res);
+  });
+</script>
+
 Hi there
 </body>
 </html>
