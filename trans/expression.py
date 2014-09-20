@@ -39,7 +39,7 @@ class Expression(translator.Translator):
 
     def visit_IfExpr(self, node):
         return ("(" + self.visit(node.test) + " ? " +
-                self.visit(node.body) + " : " + self.visit(node.orelse) + 
+                self.visit(node.body) + " : " + self.visit(node.orelse) +
                 ")")
 
 
