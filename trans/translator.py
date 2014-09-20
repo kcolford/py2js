@@ -32,6 +32,6 @@ class Translator(ast.NodeVisitor):
 
     def visit(self, node):
         if isinstance(node, list):
-            return ', '.join(self.visit(i) for i in node)
+            assert False
         return ast.NodeVisitor.visit(self, node)
 
