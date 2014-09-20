@@ -25,3 +25,10 @@ class Translator(ast.NodeVisitor):
             return ' '.join(self.visit(i) for i in ast.iter_child_nodes(node))
         except:
             return 'TBD<' + repr(node) + '>'
+
+
+    def visit(self, node):
+        if isinstance(node, list):
+            return ', '.join(self.visit(i) for i in node)
+        return ast.NodeVisitor.visit(self, node)
+

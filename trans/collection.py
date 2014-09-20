@@ -2,7 +2,6 @@
 """
 
 import binary
-import translator
 import expression
 import statement
 
