@@ -24,12 +24,8 @@ class Translator(ast.NodeVisitor):
         """Called if no explicit visitor function exists for a node.
         """
 
-        try:
-            return ' '.join(self.visit(i) for i in ast.iter_child_nodes(node))
-        except:
-            return 'TBD<' + repr(node) + '>'
-
-
+        return ' '.join(self.visit(i) for i in ast.iter_child_nodes(node))
+        
     def visit(self, node):
         if isinstance(node, list):
             assert False

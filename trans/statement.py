@@ -12,7 +12,9 @@ class Statement(translator.Translator):
         return (self.visit(node.targets) + " = " +
                 self.visit(node.value) + ';')
     def visit_Print(self, node):
-        return ("console.log(" + self.visit(node.values) + ");")
+        return ("console.log(" +
+                ', '.join(self.visit(i) for i in node.values) + 
+                ");")
 
     def visit_If(self, node):
         return ("if (" + self.visit(node.test) + ") {" +
