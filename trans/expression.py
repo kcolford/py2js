@@ -11,7 +11,11 @@ class Expression(translator.Translator):
                 self.visit(node.args) + ")")
 
     def visit_Dict(self, node):
-        pass
+
+        keys = ', '.join(map(self.visit, node.keys))
+        values = ', '.join(map(self.visit, node.values))
+
+        return 'Dict([' + keys + '], [' + values + '])'
 
     def visit_UnaryOp(self, node):
         # If this is a "not" operator then we have to wrap it from the
