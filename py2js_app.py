@@ -3,12 +3,6 @@ import webapp2
 
 from trans import translate
 
-out = """Hi there!
-
-%s
-
-"""
-
 class Translate(webapp2.RequestHandler):
   def post(self):
     self.response.headers['Content-Type'] = 'text/plain'

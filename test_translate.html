@@ -1,21 +1,38 @@
 <html>
 <head>
   <title> py2js </title>
-
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-
 </head>
 
 <body>
+  <textarea class="translate" rows=10 style="width: 80%">print 1 + 1</textarea>
+
+  <br>
+
+  <button class="translate">translate</button>
+
+  <br>
+
+  <h4> Status: <span class="status">ready!</span></h4>
+  <div class="results"></div>
 
 <script>
+
+
+$('button.translate').click(function(e) {
+
+  $('.status').text('waiting...');
+
+  var v = $('textarea.translate').val();
   $.post('../translate/', {
-    'python_string': 'print 1 + 1'
+    'python_string': v
   }, function(res) {
-    console.log(res);
+    $('.status').text('done!');
+    $('.results').empty().text(res);
   });
+})
+
 </script>
 
-Hi there
 </body>
 </html>
