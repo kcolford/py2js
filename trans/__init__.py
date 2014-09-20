@@ -3,7 +3,7 @@
 
 
 def translate(s):
-    """Return the python code string s as string of java code.
+    """Return the python code string s as string of javascript code.
     """
 
-    pass
+    return s
