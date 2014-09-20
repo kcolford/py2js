@@ -2,6 +2,7 @@
 """
 
 import ast
+import prepass
 
 
 class Translator(ast.NodeVisitor):
@@ -14,6 +15,8 @@ class Translator(ast.NodeVisitor):
 
         if isinstance(code, str) or isinstance(code, unicode):
             code = ast.parse(code)
+
+        code = prepass.PrePass().visit(code)
 
         return self.visit(code)
 
