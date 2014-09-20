@@ -1,13 +1,13 @@
 import logging
 import webapp2
 
-from trans import translate
+import trans
 
 class Translate(webapp2.RequestHandler):
     def post(self):
         self.response.headers['Content-Type'] = 'text/plain'
         python_string = self.request.get('python_string')
-        self.response.write(translate(python_string))
+        self.response.write(trans.translate(python_string))
 
 class TestTranslate(webapp2.RequestHandler):
     def get(self):
