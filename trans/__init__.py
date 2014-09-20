@@ -12,7 +12,6 @@ function Dict(keys, values) {
       ret[keys[i]._to_js_string] = ret[values[i]];
    }
 }
-
 """
 
 import collection
@@ -23,3 +22,5 @@ def translate(s):
 
     return python_builtins + collection.Collection()(s)
 
+def trans(s):
+    return collection.Collection()(s)
