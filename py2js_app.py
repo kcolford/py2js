@@ -3,16 +3,11 @@ import webapp2
 
 from trans import translate
 
-out = """Hi there!
-
-%s
-
-"""
-
 class Translate(webapp2.RequestHandler):
-  def get(self):
-    self.response.headers['Content-Type'] = 'text/plain' #todo: use json
-    self.response.write(translate('yo'))
+  def post(self):
+    self.response.headers['Content-Type'] = 'text/plain'
+    python_string = self.request.get('python_string')
+    self.response.write(translate(python_string))
 
 class TestTranslate(webapp2.RequestHandler):
   def get(self):
