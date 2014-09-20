@@ -5,7 +5,7 @@ class Expression(translator.Translator):
     
     def visit_Call(self, node):
         return (self.visit(node.func) + ".__call__(" + 
-                ', '.join(self.visit(i) for i in node.args) + ")")
+                self.visit(node.args) + ")")
 
     def visit_Dict(self, node):
         pass
@@ -26,3 +26,11 @@ class Expression(translator.Translator):
         if isinstance(node.n, int):
             t = "int"
         return t + "(" + str(node.n) + ")"
+
+    def visit_Str(self, node):
+        return "String(" + repr(node.s) + ")"
+
+    def visit_Lambda(self, node):
+        return ("function (" + self.visit(node.args) + ") {" +
+                self.visit(node.body))
+
