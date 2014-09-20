@@ -14,7 +14,7 @@ class Classes(translator.Translate):
         for i in sym.get_identifiers():
             ret += "this." + i + " = " + i + ";"
         ret += "}"
-        ret += node.name + " = type(" + node.name + ", ["
+        ret += node.name + " = type.__call__(" + node.name + ", ["
         ret += ', '.join(self.visit(i) for i in node.bases)
         ret += "], new _Py2JS_" + node.name + "()"
         ret += ")"

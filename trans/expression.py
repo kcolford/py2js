@@ -46,4 +46,5 @@ class Expression(translator.Translator):
                 self.visit(node.body) + " : " + self.visit(node.orelse) +
                 ")")
 
-
+    def visit_Raise(self, node):
+        return "throw" + self.visit(node.
