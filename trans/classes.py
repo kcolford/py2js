@@ -11,7 +11,8 @@ class Classes(translator.Translator):
         ret += "function _Py2JS_" + node.name + "() {"
         ret += ' '.join(self.visit(i) for i in node.body)
         for i in get_ids(node):
-            ret += "this." + i + " = " + i + ";"
+            ret += "this." + i + " = function () { " + \
+                   i + "(this, arguments);};"
         ret += "}"
         ret += node.name + " = type.__call__(" + node.name + ", ["
         ret += ', '.join(self.visit(i) for i in node.bases)
